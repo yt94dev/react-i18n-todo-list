@@ -1,12 +1,7 @@
 import React from 'react';
+import {TabProps} from './types';
 
 import styles from './Tab.module.css';
-
-interface TabProps {
-  title: string,
-  itemCount: number,
-  children: React.ReactNode,
-}
 
 function Tab({title, itemCount, children}: TabProps) {
   return(

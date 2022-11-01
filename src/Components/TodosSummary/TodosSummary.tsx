@@ -5,21 +5,10 @@ import {
 } from "react-circular-progressbar";
 import date from 'date-and-time';
 
+import {TodosList, TodoItem} from './types';
+
 import 'react-circular-progressbar/dist/styles.css';
-
 import styles from './TodosSummary.module.css';
-
-interface TodoItem {
-    createdAt: string,
-    id: number,
-    status: "finished" | "overdue" | "in progress" | "draft";
-    text: string,
-    title: string,
-}
-
-interface TodosList {
-    todos: Array<TodoItem>,
-}
 
 function TodosSummary({todos}: TodosList) {
     const finishedTasks: Array<TodoItem> = todos.filter(item => {

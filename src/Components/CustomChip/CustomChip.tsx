@@ -1,9 +1,7 @@
 import React from 'react';
 import Chip from '@mui/material/Chip';
+import {ICustomChip} from './types';
 
-interface ICustomChip {
-    status: "finished" | "overdue" | "in progress" | "draft";
-}
 
 function CustomChip({status}: ICustomChip){
     switch (status) {
