@@ -1,4 +1,6 @@
 {
-    "menu.dashboard": "Dashboard",
-    "common.create": "Create"
+    "translation": {
+        "menu.dashboard": "Dashboard",
+        "menu.create": "Create"
+    }
 }
