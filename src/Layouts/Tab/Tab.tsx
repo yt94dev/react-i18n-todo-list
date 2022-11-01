@@ -1,4 +1,5 @@
 import React from "react";
+
 import { TabProps } from "./types";
 
 import styles from "./Tab.module.css";

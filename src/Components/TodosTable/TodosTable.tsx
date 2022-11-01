@@ -9,6 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import CustomChip from "../CustomChip";
+
 import { TodosList } from "./types";
 
 import styles from "./TodosTable.module.css";
