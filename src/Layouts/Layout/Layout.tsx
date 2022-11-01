@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { ROUTES } from "../../Constants/routes";
 
 import styles from "./Layout.module.css";
 import logo from "../../Assets/logo.svg";
@@ -17,7 +18,7 @@ function Layout() {
                         className={({ isActive }) =>
                             isActive ? styles.activeLink : ""
                         }
-                        to="/dashboard"
+                        to={ROUTES.dashboard}
                     >
                         Dashboard
                     </NavLink>
@@ -25,7 +26,7 @@ function Layout() {
                         className={({ isActive }) =>
                             isActive ? styles.activeLink : ""
                         }
-                        to="/create"
+                        to={ROUTES.create}
                     >
                         Create
                     </NavLink>
