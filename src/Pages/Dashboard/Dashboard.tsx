@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import Tab from "../../Layouts/Tab";
 import TodosTable from "../../Components/TodosTable";
 import TodosSummary from "../../Components/TodosSummary";
+import { api } from "../../Constants/api";
 
 import styles from "./Dashboard.module.css";
 
 function Dashboard() {
     const [todos, setTodos] = useState([]);
     useEffect(() => {
-        fetch("http://188.166.76.128:8888/api/task/getAll", {
+        fetch(api.getAll, {
             method: "post",
         })
             .then((response) => response.json())

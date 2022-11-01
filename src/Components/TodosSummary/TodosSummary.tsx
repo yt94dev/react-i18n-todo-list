@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import date from "date-and-time";
 
@@ -14,7 +14,12 @@ function TodosSummary({ todos }: TodosList) {
     const overdueTasks: Array<TodoItem> = todos.filter((item) => {
         return item.status === "overdue";
     });
-    const dates: Date[] = todos.map((item) => new Date(item.createdAt));
+
+    const dates: Date[] = useMemo(
+        () => todos.map((item) => new Date(item.createdAt)),
+        [todos]
+    );
+
     const calcMaxDate = (dates: Date[]) =>
         new Date(Math.max(...dates.map(Number)));
     const maxDate = calcMaxDate(dates);
