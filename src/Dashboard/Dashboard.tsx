@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Tab from '../Tab/Tab';
 import TodosTable from '../TodosTable/TodosTable';
+import TodosSummary from '../TodosSummary/TodosSummary';
 
 import styles from './Dashboard.module.css';
 
@@ -12,7 +13,6 @@ function Dashboard() {
         }).then((response) => response.json())
         .then((data) => {
             setTodos(data);
-            console.log(data);
         });
     }, []);
 
@@ -21,7 +21,9 @@ function Dashboard() {
             <Tab title={'My todo’s'} itemCount={todos.length}>
                 <TodosTable todos={todos} />
             </Tab>
-            <Tab title={'Publish report'} itemCount={4}>sdfsdfsad</Tab>
+            <Tab title={'Publish report'} itemCount={4}>
+                <TodosSummary todos={todos}/>
+            </Tab>
         </div>
     );
 }
