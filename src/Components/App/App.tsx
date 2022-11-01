@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
-import Layout from './Layout/Layout';
-import CreateTodo from './CreateTodo/CreateTodo';
-import Dashboard from './Dashboard/Dashboard';
+import Layout from '../../Layouts/Layout';
+import CreateTodo from '../../Pages/CreateTodo';
+import Dashboard from '../../Pages/Dashboard';
 
 function App() {
   return (

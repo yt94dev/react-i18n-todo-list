@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink } from "react-router-dom";
 
 import styles from './Layout.module.css';
-import logo from '../assets/logo.svg';
-import bell from '../assets/bell.svg';
+import logo from '../../Assets/logo.svg';
+import bell from '../../Assets/bell.svg';
 
 function Layout() {
     return(

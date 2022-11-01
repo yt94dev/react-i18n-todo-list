@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import Tab from '../Tab/Tab';
-import TodosTable from '../TodosTable/TodosTable';
-import TodosSummary from '../TodosSummary/TodosSummary';
+import Tab from '../../Layouts/Tab';
+import TodosTable from '../../Components/TodosTable';
+import TodosSummary from '../../Components/TodosSummary';
 
 import styles from './Dashboard.module.css';
 
