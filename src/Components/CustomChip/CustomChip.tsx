@@ -1,28 +1,24 @@
-import React from 'react';
-import Chip from '@mui/material/Chip';
-import {ICustomChip} from './types';
+import React from "react";
+import Chip from "@mui/material/Chip";
+import { ICustomChip } from "./types";
 
-
-function CustomChip({status}: ICustomChip){
+function CustomChip({ status }: ICustomChip) {
     switch (status) {
-        case 'overdue':
-            return(<Chip  label={status}  color="error" />);
-        
-        case 'finished':
-            return(<Chip  label={status}  color="success" />);
+        case "overdue":
+            return <Chip label={status} color="error" />;
 
-        case 'in progress':
-            return(<Chip label={status} color="warning" />);
+        case "finished":
+            return <Chip label={status} color="success" />;
 
-        case 'draft':
-            return(<Chip label={status} />);
+        case "in progress":
+            return <Chip label={status} color="warning" />;
+
+        case "draft":
+            return <Chip label={status} />;
 
         default:
-            return(<Chip  label={status} />);
-    };
-
-
-
+            return <Chip label={status} />;
+    }
 }
 
 export default CustomChip;

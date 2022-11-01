@@ -1,1 +1,1 @@
-export { default } from './CustomChip';
+export { default } from "./CustomChip";

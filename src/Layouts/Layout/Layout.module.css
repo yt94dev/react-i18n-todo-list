@@ -1,13 +1,14 @@
 .navigation {
-    background: #FFFFFF;
-    box-shadow: 0px 4px 8px -2px rgba(41, 51, 41, 0.1), 0px 2px 4px -2px rgba(41, 51, 41, 0.06);
+    background: #ffffff;
+    box-shadow: 0px 4px 8px -2px rgba(41, 51, 41, 0.1),
+        0px 2px 4px -2px rgba(41, 51, 41, 0.06);
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
 .logo {
-    border-right: 1px solid  #F2F4F7;
+    border-right: 1px solid #f2f4f7;
 }
 
 .logo img {
@@ -15,7 +16,7 @@
 }
 
 .menu a {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     text-decoration: none;
     font-weight: 500;
     font-size: 14px;
@@ -24,7 +25,7 @@
     color: #799179;
 }
 
-.menu a:hover{
+.menu a:hover {
     color: #293329;
 }
 
@@ -35,8 +36,8 @@
 .notifications {
     width: 48px;
     height: 48px;
-    background: #F4F6F4;
-    border: 1px solid #F4F6F4;
+    background: #f4f6f4;
+    border: 1px solid #f4f6f4;
     box-shadow: 0px 1px 2px rgba(24, 40, 16, 0.05);
     border-radius: 8px;
     display: flex;
