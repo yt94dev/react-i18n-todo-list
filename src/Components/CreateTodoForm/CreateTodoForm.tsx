@@ -140,6 +140,7 @@ function CreateTodoForm() {
                         placeholder="Enter a description..."
                         multiline
                         rows={4}
+                        value={text}
                         onChange={handleChangeText}
                         helperText={textInputErrorText}
                     />
