@@ -31,6 +31,8 @@ function CreateTodoForm() {
     const [todoType, setTodoType] = useState("draft");
     const [message, setMessage] = useState("");
     const [response, setResponse] = useState([]);
+    const [titleInputErrorText, setTitleInputErrorText] = useState("");
+    const [textInputErrorText, setTextInputErrorText] = useState("");
 
     let handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
@@ -66,19 +68,47 @@ function CreateTodoForm() {
         }
     };
 
+    const handleChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.target.value);
+
+        let result = e.target.value.match(
+            /^(?=.{5,}$)(?=.*[A-Z])[A-Za-z0-9]+\s\w+/g
+        );
+        if (result) {
+            setTitleInputErrorText("");
+        } else {
+            setTitleInputErrorText("Invalid title");
+        }
+
+        setResponse([]);
+    };
+
+    const handleChangeText = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setText(e.target.value);
+
+        let result = e.target.value.match(/^.{10,}$/);
+        if (result) {
+            setTextInputErrorText("");
+        } else {
+            setTextInputErrorText("Invalid text");
+        }
+
+        setResponse([]);
+    };
+
     return (
         <>
             <form onSubmit={handleSubmit}>
                 <div className={styles.row}>
                     <TextField
                         required
+                        error={titleInputErrorText.length > 0}
                         sx={{ width: "20%" }}
                         id="outlined-required"
                         label="Title"
-                        onChange={(e) => {
-                            setTitle(e.target.value);
-                            setResponse([]);
-                        }}
+                        onChange={handleChangeTitle}
+                        value={title}
+                        helperText={titleInputErrorText}
                     />
                 </div>
                 <div className={styles.row}>
@@ -103,19 +133,26 @@ function CreateTodoForm() {
                 <div className={styles.row}>
                     <TextField
                         required
+                        error={textInputErrorText.length > 0}
                         sx={{ width: "20%" }}
                         id="outlined-multiline-static"
                         label="Description"
                         placeholder="Enter a description..."
                         multiline
                         rows={4}
-                        onChange={(e) => {
-                            setText(e.target.value);
-                            setResponse([]);
-                        }}
+                        onChange={handleChangeText}
+                        helperText={textInputErrorText}
                     />
                 </div>
-                <Button variant="contained" type="submit" color="success">
+                <Button
+                    variant="contained"
+                    type="submit"
+                    color="success"
+                    disabled={
+                        titleInputErrorText.length > 0 ||
+                        textInputErrorText.length > 0
+                    }
+                >
                     Create
                 </Button>
                 <div className={styles.message}>
