@@ -122,7 +122,11 @@ function CreateTodoForm() {
                     {message ? (
                         <p className={styles.success}>{message}</p>
                     ) : response ? (
-                        response.map((item, index) => <p key={index}>{item}</p>)
+                        response.map((item, index) => (
+                            <p key={index} className={styles.error}>
+                                {item}
+                            </p>
+                        ))
                     ) : null}
                 </div>
             </form>

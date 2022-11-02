@@ -10,3 +10,8 @@
 .message {
     margin-top: 20px;
 }
+
+.error {
+    text-transform: uppercase;
+    color: red;
+}
