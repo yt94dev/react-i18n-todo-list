@@ -1,0 +1,12 @@
+.row {
+    margin-bottom: 54px;
+}
+
+.success {
+    text-transform: uppercase;
+    color: green;
+}
+
+.message {
+    margin-top: 20px;
+}

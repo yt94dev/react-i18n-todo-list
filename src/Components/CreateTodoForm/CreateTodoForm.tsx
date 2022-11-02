@@ -1,7 +1,29 @@
 import React, { useState } from "react";
 import { api } from "../../Constants/api";
+import TextField from "@mui/material/TextField";
+import MenuItem from "@mui/material/MenuItem";
+import Button from "@mui/material/Button";
 
-// import styles from "./CreateTodoForm.module.css";
+import styles from "./CreateTodoForm.module.css";
+
+const statusList = [
+    {
+        value: "overdue",
+        label: "Overdue",
+    },
+    {
+        value: "finished",
+        label: "Finished",
+    },
+    {
+        value: "draft",
+        label: "Draft",
+    },
+    {
+        value: "in progress",
+        label: "In progress",
+    },
+];
 
 function CreateTodoForm() {
     const [title, setTitle] = useState("");
@@ -29,13 +51,15 @@ function CreateTodoForm() {
 
             console.log(resJson);
 
-            if (res.status === 200) {
+            if (res.status === 201) {
                 setTitle("");
                 setText("");
-                setMessage("Record created successfully");
+                setMessage("Task successfully added");
+                setTimeout(() => {
+                    setMessage("");
+                }, 2000);
             } else {
                 setResponse(resJson.message);
-                console.log(res);
             }
         } catch (err) {
             console.log(err);
@@ -45,35 +69,58 @@ function CreateTodoForm() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={title}
-                    placeholder="Title"
-                    required
-                    onChange={(e) => setTitle(e.target.value)}
-                />
-                <select
-                    required
-                    defaultValue={todoType}
-                    onChange={(e) => setTodoType(e.target.value)}
-                >
-                    <option value="overdue">Overdue</option>
-                    <option value="finished">Finished</option>
-                    <option value="draft">Draft</option>
-                    <option value="in progress">In progress</option>
-                </select>
-                <input
-                    type="text"
-                    value={text}
-                    placeholder="Description"
-                    onChange={(e) => setText(e.target.value)}
-                />
-
-                <button type="submit">Create</button>
-
-                <div className="message">
+                <div className={styles.row}>
+                    <TextField
+                        required
+                        sx={{ width: "20%" }}
+                        id="outlined-required"
+                        label="Title"
+                        onChange={(e) => {
+                            setTitle(e.target.value);
+                            setResponse([]);
+                        }}
+                    />
+                </div>
+                <div className={styles.row}>
+                    <TextField
+                        id="outlined-select-currency"
+                        sx={{ width: "20%" }}
+                        select
+                        label="Select"
+                        value={todoType}
+                        onChange={(e) => {
+                            setTodoType(e.target.value);
+                            setResponse([]);
+                        }}
+                    >
+                        {statusList.map((option) => (
+                            <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                </div>
+                <div className={styles.row}>
+                    <TextField
+                        required
+                        sx={{ width: "20%" }}
+                        id="outlined-multiline-static"
+                        label="Description"
+                        placeholder="Enter a description..."
+                        multiline
+                        rows={4}
+                        onChange={(e) => {
+                            setText(e.target.value);
+                            setResponse([]);
+                        }}
+                    />
+                </div>
+                <Button variant="contained" type="submit" color="success">
+                    Create
+                </Button>
+                <div className={styles.message}>
                     {message ? (
-                        <p>{message}</p>
+                        <p className={styles.success}>{message}</p>
                     ) : response ? (
                         response.map((item, index) => <p key={index}>{item}</p>)
                     ) : null}
