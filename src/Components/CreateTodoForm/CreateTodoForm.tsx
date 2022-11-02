@@ -72,7 +72,7 @@ function CreateTodoForm() {
         setTitle(e.target.value);
 
         let result = e.target.value.match(
-            /^(?=.{5,}$)(?=.*[A-Z])[A-Za-z0-9]+\s\w+/g
+            /^(?=.{5,}$)(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9]+\s\w+/g
         );
         if (result) {
             setTitleInputErrorText("");
